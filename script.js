@@ -5,7 +5,7 @@ function changeColors() {
     let currentColor = colors.findIndex(colors => button.classList.contains(colors));
     button.classList.remove(colors[currentColor]);
     
-		let nextColor = (currentColor + 1) % colors.length;
+    let nextColor = (currentColor + 1) % colors.length;
     button.classList.add(colors[nextColor]);
 }
 setInterval(changeColors, 10000);
