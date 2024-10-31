@@ -1,14 +1,12 @@
 function changeColors() {
     let button = document.getElementById("lights");
-    if (button.classList.contains("btn-danger")) {
-        button.classList.remove("btn-danger");
-        button.classList.add("btn-warning"); 
-    } else if (button.classList.contains("btn-warning")) {
-        button.classList.remove("btn-warning");
-        button.classList.add("btn-success"); 
-    } else {
-        button.classList.remove("btn-success");
-        button.classList.add("btn-danger"); 
-    }
+    const colors = ["btn-danger", "btn-warning", "btn-success"];
+    
+		let currentColor = colors.findIndex(colors => button.classList.contains(colors));
+    button.classList.remove(colors[currentColor]);
+    
+		let nextColor = (currentColor + 1) % colors.length;
+    button.classList.add(colors[nextColor]);
 }
 setInterval(changeColors, 10000);
+
